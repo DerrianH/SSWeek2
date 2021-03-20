@@ -8,6 +8,17 @@ package com.ss.training.utopia.entity;
  *
  */
 public class BookingGuest extends BookingBaseUser{
+
+	/**
+	 * @param bookingId
+	 * @param email
+	 * @param phone
+	 */
+	public BookingGuest(Integer bookingId, String email, String phone) {
+		super(bookingId);
+		this.email = email;
+		this.phone = phone;
+	}
 	private String email;
 	private String phone;
 	/**

@@ -3,8 +3,6 @@
  */
 package com.ss.training.utopia.entity;
 
-import java.util.List;
-
 /**
  * @author derrianharris
  *
@@ -12,12 +10,11 @@ import java.util.List;
 public class Airport {
 	private String iataId;
 	private String city;
-	private List<Route> routes;
 	/**
 	 * @return the iataId
 	 */
 	public String getIataId() {
-		return iataId;
+		return this.iataId;
 	}
 	/**
 	 * @param iataId the iataId to set
@@ -29,7 +26,7 @@ public class Airport {
 	 * @return the city
 	 */
 	public String getCity() {
-		return city;
+		return this.city;
 	}
 	/**
 	 * @param city the city to set
@@ -38,15 +35,11 @@ public class Airport {
 		this.city = city;
 	}
 	/**
-	 * @return the routes
+	 * @param iataId
+	 * @param city
 	 */
-	public List<Route> getRoutes() {
-		return routes;
-	}
-	/**
-	 * @param routes the routes to set
-	 */
-	public void setRoutes(List<Route> routes) {
-		this.routes = routes;
+	public Airport(String iataId, String city) {
+		this.iataId = iataId;
+		this.city = city;
 	}
 }

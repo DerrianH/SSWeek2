@@ -8,26 +8,37 @@ package com.ss.training.utopia.entity;
  *
  */
 public class BookingPayment {
-	private Booking booking;
+	private Integer bookingId;
 	private String stripeId;
 	private boolean refunded;
 	/**
-	 * @return the booking
+	 * @param bookingId
+	 * @param stripeId
+	 * @param refunded
 	 */
-	public Booking getBooking() {
-		return booking;
+	public BookingPayment(Integer bookingId, String stripeId,
+			boolean refunded) {
+		this.bookingId = bookingId;
+		this.stripeId = stripeId;
+		this.refunded = refunded;
 	}
 	/**
-	 * @param booking the booking to set
+	 * @return the bookingId
 	 */
-	public void setBooking(Booking booking) {
-		this.booking = booking;
+	public Integer getBookingId() {
+		return this.bookingId;
+	}
+	/**
+	 * @param bookingId the bookingId to set
+	 */
+	public void setBookingId(Integer bookingId) {
+		this.bookingId = bookingId;
 	}
 	/**
 	 * @return the stripeId
 	 */
 	public String getStripeId() {
-		return stripeId;
+		return this.stripeId;
 	}
 	/**
 	 * @param stripeId the stripeId to set
@@ -39,7 +50,7 @@ public class BookingPayment {
 	 * @return the refunded
 	 */
 	public boolean isRefunded() {
-		return refunded;
+		return this.refunded;
 	}
 	/**
 	 * @param refunded the refunded to set

@@ -8,20 +8,26 @@ package com.ss.training.utopia.entity;
  *
  */
 public class BookingBaseUser {
-	private Booking booking;
+	private Integer bookingId;
 
 	/**
-	 * @return the booking
+	 * @param bookingId
 	 */
-	public Booking getBooking() {
-		return booking;
+	public BookingBaseUser(Integer bookingId) {
+		this.bookingId = bookingId;
 	}
 
 	/**
-	 * @param booking the booking to set
+	 * @return the bookingId
 	 */
-	public void setBooking(Booking booking) {
-		this.booking = booking;
+	public Integer getBookingId() {
+		return this.bookingId;
 	}
 
+	/**
+	 * @param bookingId the bookingId to set
+	 */
+	public void setBookingId(Integer bookingId) {
+		this.bookingId = bookingId;
+	}
 }

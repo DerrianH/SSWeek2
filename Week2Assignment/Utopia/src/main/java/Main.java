@@ -1,7 +1,9 @@
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import com.ss.training.utopia.dao.AirplaneDAO;
+import com.ss.training.utopia.entity.Airplane;
 import com.ss.training.utopia.service.Utils;
 
 /**
@@ -12,12 +14,12 @@ import com.ss.training.utopia.service.Utils;
  * @author derrianharris
  *
  */
-public class TestClass {
+public class Main {
 
 	/**
 	 * 
 	 */
-	public TestClass() {
+	public Main() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -31,8 +33,8 @@ public class TestClass {
 		try {
 			Connection conn = util.getConnection();
 			AirplaneDAO adao = new AirplaneDAO(conn);
+			List<Airplane> planes = adao.readDataQuery("select * from airplane");
 			
-			adao.readDataQuery("select * from airplane");
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

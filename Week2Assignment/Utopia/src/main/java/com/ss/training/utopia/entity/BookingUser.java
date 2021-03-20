@@ -7,20 +7,32 @@ package com.ss.training.utopia.entity;
  * @author derrianharris
  *
  */
-public class BookingUser {
-	private User user;
+public class BookingUser extends BookingBaseUser {
+
+
+	private Integer userId;
+
 
 	/**
-	 * @return the user
+	 * @param bookingId
+	 * @param userId
 	 */
-	public User getUser() {
-		return user;
+	public BookingUser(Integer bookingId, Integer userId) {
+		super(bookingId);
+		this.userId = userId;
 	}
 
 	/**
-	 * @param user the user to set
+	 * @return the userId
 	 */
-	public void setUser(User user) {
-		this.user = user;
+	public Integer getUserId() {
+		return userId;
+	}
+
+	/**
+	 * @param userId the userId to set
+	 */
+	public void setUserId(Integer userId) {
+		this.userId = userId;
 	}
 }

@@ -3,22 +3,31 @@
  */
 package com.ss.training.utopia.entity;
 
-import java.util.List;
-
 /**
  * @author derrianharris
  *
  */
 public class Booking {
+	
 	private Integer id;
-	private boolean isActive;
+	private Boolean isActive;
 	private String confirmationCode;
-	private List<Passenger> passengers;
+	/**
+	 * @param id
+	 * @param isActive
+	 * @param confirmationCode
+	 */
+	public Booking(Integer id, boolean isActive, String confirmationCode) {
+		this.id = id;
+		this.isActive = isActive;
+		this.confirmationCode = confirmationCode;
+	}
+	
 	/**
 	 * @return the id
 	 */
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 	/**
 	 * @param id the id to set
@@ -30,7 +39,7 @@ public class Booking {
 	 * @return the isActive
 	 */
 	public boolean isActive() {
-		return isActive;
+		return this.isActive;
 	}
 	/**
 	 * @param isActive the isActive to set
@@ -42,7 +51,7 @@ public class Booking {
 	 * @return the confirmationCode
 	 */
 	public String getConfirmationCode() {
-		return confirmationCode;
+		return this.confirmationCode;
 	}
 	/**
 	 * @param confirmationCode the confirmationCode to set
@@ -50,17 +59,4 @@ public class Booking {
 	public void setConfirmationCode(String confirmationCode) {
 		this.confirmationCode = confirmationCode;
 	}
-	/**
-	 * @return the passengers
-	 */
-	public List<Passenger> getPassengers() {
-		return passengers;
-	}
-	/**
-	 * @param passengers the passengers to set
-	 */
-	public void setPassengers(List<Passenger> passengers) {
-		this.passengers = passengers;
-	}
-
 }

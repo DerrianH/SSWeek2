@@ -8,13 +8,38 @@ package com.ss.training.utopia.entity;
  *
  */
 public class User {
+
 	private Integer id;
+	private Integer roleId;
 	private String firstName;
 	private String LastName;
+	private String username;
 	private String email;
 	private String password;
 	private String phone;
-	private UserRole userRole;
+	
+	/**
+	 * @param id
+	 * @param roleId
+	 * @param firstName
+	 * @param lastName
+	 * @param username
+	 * @param email
+	 * @param password
+	 * @param phone
+	 */
+	public User(Integer id, Integer roleId, String firstName, String lastName,
+			String username, String email, String password, String phone) {
+		this.id = id;
+		this.roleId = roleId;
+		this.firstName = firstName;
+		this.LastName = lastName;
+		this.username = username;
+		this.email = email;
+		this.password = password;
+		this.phone = phone;
+	}
+	
 	/**
 	 * @return the id
 	 */
@@ -44,6 +69,18 @@ public class User {
 	 */
 	public String getLastName() {
 		return LastName;
+	}
+	/**
+	 * @return the roleId
+	 */
+	public Integer getRoleId() {
+		return this.roleId;
+	}
+	/**
+	 * @param roleId the roleId to set
+	 */
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
 	}
 	/**
 	 * @param lastName the lastName to set
@@ -88,15 +125,15 @@ public class User {
 		this.phone = phone;
 	}
 	/**
-	 * @return the userRole
+	 * @return the username
 	 */
-	public UserRole getUserRole() {
-		return userRole;
+	public String getUsername() {
+		return username;
 	}
 	/**
-	 * @param userRole the userRole to set
+	 * @param username the username to set
 	 */
-	public void setUserRole(UserRole userRole) {
-		this.userRole = userRole;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 }

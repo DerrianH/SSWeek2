@@ -8,30 +8,38 @@ package com.ss.training.utopia.entity;
  *
  */
 public class FlightBooking {
-	private Flight flight;
-	private Booking booking;
+	private Integer flightId;
+	private Integer bookingId;
 	/**
-	 * @return the flight
+	 * @param flightId
+	 * @param bookingId
 	 */
-	public Flight getFlight() {
-		return flight;
+	public FlightBooking(Integer flightId, Integer bookingId) {
+		this.flightId = flightId;
+		this.bookingId = bookingId;
 	}
 	/**
-	 * @param flight the flight to set
+	 * @return the flightId
 	 */
-	public void setFlight(Flight flight) {
-		this.flight = flight;
+	public Integer getFlightId() {
+		return this.flightId;
 	}
 	/**
-	 * @return the booking
+	 * @param flightId the flightId to set
 	 */
-	public Booking getBooking() {
-		return booking;
+	public void setFlightId(Integer flightId) {
+		this.flightId = flightId;
 	}
 	/**
-	 * @param booking the booking to set
+	 * @return the bookingId
 	 */
-	public void setBooking(Booking booking) {
-		this.booking = booking;
+	public Integer getBookingId() {
+		return this.bookingId;
+	}
+	/**
+	 * @param bookingId the bookingId to set
+	 */
+	public void setBookingId(Integer bookingId) {
+		this.bookingId = bookingId;
 	}
 }

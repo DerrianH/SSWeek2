@@ -19,6 +19,12 @@ public abstract class BaseDAO<T> {
 	public BaseDAO(Connection conn) {
 		this.conn = conn;
 	}
+	
+	public abstract void addData(T data) throws ClassNotFoundException, SQLException ;
+
+	public abstract void updateData(T data) throws ClassNotFoundException, SQLException ;
+
+	public abstract void deleteData(T data) throws ClassNotFoundException, SQLException ;
 
 	public void executeQuery(String sql, Object[] vals)
 			throws ClassNotFoundException, SQLException {
@@ -50,7 +56,7 @@ public abstract class BaseDAO<T> {
 		return extractData(rs);
 	}
 
-	abstract public List<T> extractData(ResultSet rs)
+	abstract protected List<T> extractData(ResultSet rs)
 			throws ClassNotFoundException, SQLException;
 
 }

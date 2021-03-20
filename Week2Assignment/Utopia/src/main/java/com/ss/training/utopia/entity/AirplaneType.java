@@ -3,21 +3,18 @@
  */
 package com.ss.training.utopia.entity;
 
-import java.util.List;
-
 /**
  * @author derrianharris
  *
  */
 public class AirplaneType {
 	private Integer id;
-	private Integer typeId;
-	private List<Airplane> airplanes;
+	private Integer maxCapacity;
 	/**
 	 * @return the id
 	 */
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 	/**
 	 * @param id the id to set
@@ -26,28 +23,23 @@ public class AirplaneType {
 		this.id = id;
 	}
 	/**
-	 * @return the typeId
+	 * @return the maxCapacity
 	 */
-	public Integer getTypeId() {
-		return typeId;
+	public Integer getMaxCapacity() {
+		return this.maxCapacity;
 	}
 	/**
-	 * @param typeId the typeId to set
+	 * @param maxCapacity the maxCapacity to set
 	 */
-	public void setTypeId(Integer typeId) {
-		this.typeId = typeId;
+	public void setMaxCapacity(Integer maxCapacity) {
+		this.maxCapacity = maxCapacity;
 	}
 	/**
-	 * @return the airplanes
+	 * @param id
+	 * @param maxCapacity
 	 */
-	public List<Airplane> getAirplanes() {
-		return airplanes;
+	public AirplaneType(Integer id, Integer maxCapacity) {
+		this.id = id;
+		this.maxCapacity = maxCapacity;
 	}
-	/**
-	 * @param airplanes the airplanes to set
-	 */
-	public void setAirplanes(List<Airplane> airplanes) {
-		this.airplanes = airplanes;
-	}
-
 }

@@ -3,22 +3,28 @@
  */
 package com.ss.training.utopia.entity;
 
-import java.util.List;
-
 /**
  * @author derrianharris
  *
  */
 public class Route {
 	private Integer id;
-	private Airport origin;
-	private Airport destination;
-	private List<Flight> flights;
+	private String originIataId;
+	/**
+	 * @param id
+	 * @param originIataId
+	 * @param destinationIataId
+	 */
+	public Route(Integer id, String originIataId, String destinationIataId) {
+		this.id = id;
+		this.originIataId = originIataId;
+		this.destinationIataId = destinationIataId;
+	}
 	/**
 	 * @return the id
 	 */
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 	/**
 	 * @param id the id to set
@@ -27,39 +33,28 @@ public class Route {
 		this.id = id;
 	}
 	/**
-	 * @return the origin
+	 * @return the originIataId
 	 */
-	public Airport getOrigin() {
-		return origin;
+	public String getOriginIataId() {
+		return this.originIataId;
 	}
 	/**
-	 * @param origin the origin to set
+	 * @param originIataId the originIataId to set
 	 */
-	public void setOrigin(Airport origin) {
-		this.origin = origin;
+	public void setOriginIataId(String originIataId) {
+		this.originIataId = originIataId;
 	}
 	/**
-	 * @return the destination
+	 * @return the destinationIataId
 	 */
-	public Airport getDestination() {
-		return destination;
+	public String getDestinationIataId() {
+		return this.destinationIataId;
 	}
 	/**
-	 * @param destination the destination to set
+	 * @param destinationIataId the destinationIataId to set
 	 */
-	public void setDestination(Airport destination) {
-		this.destination = destination;
+	public void setDestinationIataId(String destinationIataId) {
+		this.destinationIataId = destinationIataId;
 	}
-	/**
-	 * @return the flights
-	 */
-	public List<Flight> getFlights() {
-		return flights;
-	}
-	/**
-	 * @param flights the flights to set
-	 */
-	public void setFlights(List<Flight> flights) {
-		this.flights = flights;
-	}
+	private String destinationIataId;
 }

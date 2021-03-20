@@ -8,13 +8,21 @@ package com.ss.training.utopia.entity;
  *
  */
 public class UserRole {
+	/**
+	 * @param id
+	 * @param name
+	 */
+	public UserRole(Integer id, String name) {
+		this.id = id;
+		this.name = name;
+	}
 	private Integer id;
 	private String name;
 	/**
 	 * @return the id
 	 */
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 	/**
 	 * @param id the id to set
@@ -26,7 +34,7 @@ public class UserRole {
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	/**
 	 * @param name the name to set

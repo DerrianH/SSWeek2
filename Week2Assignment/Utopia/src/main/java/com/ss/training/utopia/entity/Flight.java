@@ -3,8 +3,7 @@
  */
 package com.ss.training.utopia.entity;
 
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.OffsetDateTime;
 
 /**
  * @author derrianharris
@@ -12,17 +11,34 @@ import java.util.List;
  */
 public class Flight {
 	private Integer id;
-	private Route route;
-	private Airplane airplane;
-	private LocalDateTime departureTime;
+	private Integer routeId;
+	private Integer airplaneId;
+	private OffsetDateTime departureTime;
 	private Integer reservedSeats;
-	private Integer seatPrice;
-	private List<FlightBooking> flightBookings;
+	private Float seatPrice;
+	/**
+	 * @param id
+	 * @param routeId
+	 * @param airplaneId
+	 * @param departureTime
+	 * @param reservedSeats
+	 * @param seatPrice
+	 */
+	public Flight(Integer id, Integer routeId, Integer airplaneId,
+			OffsetDateTime departureTime, Integer reservedSeats,
+			Float seatPrice) {
+		this.id = id;
+		this.routeId = routeId;
+		this.airplaneId = airplaneId;
+		this.departureTime = departureTime;
+		this.reservedSeats = reservedSeats;
+		this.seatPrice = seatPrice;
+	}
 	/**
 	 * @return the id
 	 */
 	public Integer getId() {
-		return id;
+		return this.id;
 	}
 	/**
 	 * @param id the id to set
@@ -31,46 +47,46 @@ public class Flight {
 		this.id = id;
 	}
 	/**
-	 * @return the route
+	 * @return the routeId
 	 */
-	public Route getRoute() {
-		return route;
+	public Integer getRouteId() {
+		return this.routeId;
 	}
 	/**
-	 * @param route the route to set
+	 * @param routeId the routeId to set
 	 */
-	public void setRoute(Route route) {
-		this.route = route;
+	public void setRouteId(Integer routeId) {
+		this.routeId = routeId;
 	}
 	/**
-	 * @return the airplane
+	 * @return the airplaneId
 	 */
-	public Airplane getAirplane() {
-		return airplane;
+	public Integer getAirplaneId() {
+		return this.airplaneId;
 	}
 	/**
-	 * @param airplane the airplane to set
+	 * @param airplaneId the airplaneId to set
 	 */
-	public void setAirplane(Airplane airplane) {
-		this.airplane = airplane;
+	public void setAirplaneId(Integer airplaneId) {
+		this.airplaneId = airplaneId;
 	}
 	/**
 	 * @return the departureTime
 	 */
-	public LocalDateTime getDepartureTime() {
-		return departureTime;
+	public OffsetDateTime getDepartureTime() {
+		return this.departureTime;
 	}
 	/**
 	 * @param departureTime the departureTime to set
 	 */
-	public void setDepartureTime(LocalDateTime departureTime) {
+	public void setDepartureTime(OffsetDateTime departureTime) {
 		this.departureTime = departureTime;
 	}
 	/**
 	 * @return the reservedSeats
 	 */
 	public Integer getReservedSeats() {
-		return reservedSeats;
+		return this.reservedSeats;
 	}
 	/**
 	 * @param reservedSeats the reservedSeats to set
@@ -81,25 +97,14 @@ public class Flight {
 	/**
 	 * @return the seatPrice
 	 */
-	public Integer getSeatPrice() {
-		return seatPrice;
+	public Float getSeatPrice() {
+		return this.seatPrice;
 	}
 	/**
 	 * @param seatPrice the seatPrice to set
 	 */
-	public void setSeatPrice(Integer seatPrice) {
+	public void setSeatPrice(Float seatPrice) {
 		this.seatPrice = seatPrice;
 	}
-	/**
-	 * @return the flightBookings
-	 */
-	public List<FlightBooking> getFlightBookings() {
-		return flightBookings;
-	}
-	/**
-	 * @param flightBookings the flightBookings to set
-	 */
-	public void setFlightBookings(List<FlightBooking> flightBookings) {
-		this.flightBookings = flightBookings;
-	}
+	
 }
