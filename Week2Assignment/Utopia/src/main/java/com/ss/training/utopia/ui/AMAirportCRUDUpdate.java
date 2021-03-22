@@ -67,6 +67,8 @@ public class AMAirportCRUDUpdate extends AMAirportCRUDEdit {
 							System.out.println("");
 							System.out.println("Duplicate entry.");
 						}
+						input = "quit";
+						ViewHandler.getInstance().goBack();
 						break;
 				}
 
@@ -76,7 +78,7 @@ public class AMAirportCRUDUpdate extends AMAirportCRUDEdit {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ViewHandler.getInstance().goBack();
+		
 
 	}
 

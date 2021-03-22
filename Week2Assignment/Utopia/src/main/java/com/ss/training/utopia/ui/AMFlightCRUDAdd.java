@@ -184,20 +184,15 @@ public class AMFlightCRUDAdd extends BaseMenu {
 						} catch (SQLIntegrityConstraintViolationException e) {
 							System.out.println("Duplicate Entry.");
 						}
+						input = "quit";
 						ViewHandler.getInstance().goBack();
 						break;
 				}
-				if (input.toLowerCase().equals("quit")) {
-					ViewHandler.getInstance().goBack();
-				}
-
 			}
 		} catch (SQLException e) {
 			System.out.println("Error retrieving data. Contact Administrator.");
 			e.printStackTrace();
 		}
-		System.out.println("Flight Added!");
-		ViewHandler.getInstance().goBack();
 	}
 
 	@Override

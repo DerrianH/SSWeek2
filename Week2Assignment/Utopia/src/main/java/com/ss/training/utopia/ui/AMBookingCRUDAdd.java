@@ -85,8 +85,8 @@ public class AMBookingCRUDAdd extends BaseMenu {
 							System.out.println("");
 							System.out.println("Duplicate entry.");
 						}
+						input = "quit";
 						ViewHandler.getInstance().goBack();
-
 						break;
 				}
 
@@ -96,7 +96,6 @@ public class AMBookingCRUDAdd extends BaseMenu {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ViewHandler.getInstance().goBack();
 	}
 
 	@Override

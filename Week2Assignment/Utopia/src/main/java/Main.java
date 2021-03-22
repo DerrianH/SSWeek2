@@ -22,7 +22,7 @@ public class Main {
 	 * @param args
 	 * @throws SQLException
 	 */
-	public static void main(String[] args) throws SQLException {
+	public static void main(String[] args) {
 		ViewHandler.getInstance().start();
 	}
 }

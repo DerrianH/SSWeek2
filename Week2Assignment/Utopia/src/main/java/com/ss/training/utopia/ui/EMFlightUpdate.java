@@ -188,11 +188,9 @@ public class EMFlightUpdate extends EMFlightEdit {
 							System.out.println("");
 							System.out.println("Duplicate Entry.");
 						}
+						input = "quit";
 						ViewHandler.getInstance().goBack();
 						break;
-				}
-				if (input.toLowerCase().equals("quit")) {
-					ViewHandler.getInstance().goBack();
 				}
 
 			}

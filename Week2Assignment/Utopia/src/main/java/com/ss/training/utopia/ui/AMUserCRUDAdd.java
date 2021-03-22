@@ -92,13 +92,11 @@ public class AMUserCRUDAdd extends AMUserCRUD {
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
+					input = "quit";
 					ViewHandler.getInstance().goBack();
 					break;
 			}
-
 		}
-		ViewHandler.getInstance().goBack();
-
 	}
 
 	@Override

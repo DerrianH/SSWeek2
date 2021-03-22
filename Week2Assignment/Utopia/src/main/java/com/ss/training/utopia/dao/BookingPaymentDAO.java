@@ -24,16 +24,20 @@ public class BookingPaymentDAO extends BaseDAO<BookingPayment> {
 	@Override
 	public Integer addData(BookingPayment payment)
 			throws ClassNotFoundException, SQLException {
-		return executeQueryPk("insert into booking_payment values (?, ?, ?)",
-				new Object[]{payment.getBookingId(), payment.getStripeId(),
-						payment.isRefunded()});
+		Object[] values = new Object[]{payment.getBookingId(), payment.getStripeId(),
+				payment.isRefunded()};
+		String[] columns = new String[] {"booking_id","stripe_id","refunded"};
+		return executeQueryPk(QueryBuilder.insertQuery(tableName, columns),
+				values);
 	}
 
 	@Override
 	public void deleteData(BookingPayment payment)
 			throws ClassNotFoundException, SQLException {
-		executeQuery("delete from booking_payment where booking_id = ?",
-				new Object[]{payment.getBookingId()});
+		
+		Object[] value = new Object[]{payment.getBookingId()};
+		executeQuery(QueryBuilder.insertQuery(tableName, "booking_id"),
+				value);
 	}
 
 	@Override
@@ -44,7 +48,7 @@ public class BookingPaymentDAO extends BaseDAO<BookingPayment> {
 		while (rs.next()) {
 			Integer bookingId = rs.getInt("booking_id");
 			String stripeId = rs.getString("stripe_id");
-			Boolean isRefunded = rs.getBoolean("is_refunded");
+			Boolean isRefunded = rs.getBoolean("refunded");
 			BookingPayment bookingUser = new BookingPayment(bookingId, stripeId,
 					isRefunded);
 
@@ -56,9 +60,11 @@ public class BookingPaymentDAO extends BaseDAO<BookingPayment> {
 	@Override
 	public void updateData(BookingPayment payment)
 			throws ClassNotFoundException, SQLException {
+		Object[] values =new Object[]{payment.getStripeId(), payment.isRefunded(),
+				payment.getBookingId()};
+		String[] columns = new String[] {"stripe_id","refunded"};
 		executeQuery(
-				"update booking_payment set stripe_id = ?, is_refunded = ? where booking_id = ?",
-				new Object[]{payment.getStripeId(), payment.isRefunded(),
-						payment.getBookingId()});
+				QueryBuilder.updateQuery(tableName, columns, "booking_id"),
+				values);
 	}
 }

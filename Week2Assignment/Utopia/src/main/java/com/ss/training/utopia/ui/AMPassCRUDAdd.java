@@ -101,8 +101,8 @@ public class AMPassCRUDAdd extends AMPassCRUD {
 							System.out.println("");
 							System.out.println("Duplicate entry.");
 						}
+						input = "quit";
 						ViewHandler.getInstance().goBack();
-
 						break;
 				}
 
@@ -112,6 +112,5 @@ public class AMPassCRUDAdd extends AMPassCRUD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ViewHandler.getInstance().goBack();
 	}
 }

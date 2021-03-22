@@ -24,15 +24,18 @@ public class UserRoleDAO extends BaseDAO<UserRole> {
 	@Override
 	public Integer addData(UserRole role)
 			throws ClassNotFoundException, SQLException {
-		return executeQueryPk("insert into user_role values (?)",
-				new Object[]{role.getName()});
+		Object[] value = new Object[]{role.getName()};
+		String[] column = new String[] {"name"};
+		return executeQueryPk(QueryBuilder.insertQuery(tableName, column),
+				value);
 	}
 
 	@Override
 	public void deleteData(UserRole role)
 			throws ClassNotFoundException, SQLException {
-		executeQuery("delete from user_role where id = ?",
-				new Object[]{role.getId()});
+		Object[] value = new Object[]{role.getId()};
+		executeQuery(QueryBuilder.deleteQuery(tableName, "id"),
+				value);
 	}
 
 	@Override
@@ -53,7 +56,9 @@ public class UserRoleDAO extends BaseDAO<UserRole> {
 	@Override
 	public void updateData(UserRole role)
 			throws ClassNotFoundException, SQLException {
-		executeQuery("update user_role set name = ? where id = ?",
-				new Object[]{role.getName(), role.getId()});
+		Object[] values= new Object[]{role.getName(), role.getId()};
+		String[] column = new String[] {"name"};
+		executeQuery(QueryBuilder.updateQuery(tableName, column, "id"),
+				values);
 	}
 }

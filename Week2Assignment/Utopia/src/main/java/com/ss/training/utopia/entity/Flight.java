@@ -110,16 +110,16 @@ public class Flight {
 		return arrivalTime;
 	}
 	public Integer getAvailibleBusinessSeats() {
-		return getAirplane().getAirplaneType().getBusinessCapacity()
-				- getReservedBusinessSeats();
+		return Integer.max( getAirplane().getAirplaneType().getBusinessCapacity()
+				- getReservedBusinessSeats(),0);
 	}
 	public Integer getAvailibleEconomySeats() {
-		return getAirplane().getAirplaneType().getEconomyCapacity()
-				- getReservedEconomySeats();
+		return Integer.max(getAirplane().getAirplaneType().getEconomyCapacity()
+				- getReservedEconomySeats(),0);
 	}
 	public Integer getAvailibleFirstSeats() {
-		return getAirplane().getAirplaneType().getFirstClassCapacity()
-				- getReservedFirstSeats();
+		return Integer.max(getAirplane().getAirplaneType().getFirstClassCapacity()
+				- getReservedFirstSeats(),0);
 	}
 
 	/**

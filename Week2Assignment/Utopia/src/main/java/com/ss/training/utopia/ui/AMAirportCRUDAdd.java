@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.ss.training.utopia.ui;
 
 import java.sql.SQLException;
@@ -63,6 +61,7 @@ public class AMAirportCRUDAdd extends BaseMenu {
 						} else {
 							System.out.println("Error parsing airport.");
 						}
+						input = "quit";
 						ViewHandler.getInstance().goBack();
 						break;
 				}

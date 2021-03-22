@@ -144,7 +144,7 @@ public class ServiceHandler {
 		try {
 			conn = util.getConnection();
 			FlightBookingDAO flightBookingDAO = new FlightBookingDAO(conn,
-					"flight_booking");
+					"flight_bookings");
 			flightBookingDAO.addData(flightBooking);
 			conn.commit();
 

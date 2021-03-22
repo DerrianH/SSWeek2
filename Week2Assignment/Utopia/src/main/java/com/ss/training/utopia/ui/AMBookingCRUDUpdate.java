@@ -101,11 +101,12 @@ public class AMBookingCRUDUpdate extends AMBookingCRUDEdit {
 
 						try {
 							service.updateBooking(booking);
-							ViewHandler.getInstance().goBack();
 						} catch (SQLIntegrityConstraintViolationException e) {
 							System.out.println("");
 							System.out.println("Duplicate entry.");
 						}
+						input = "quit";
+						ViewHandler.getInstance().goBack();
 						break;
 				}
 
@@ -115,7 +116,6 @@ public class AMBookingCRUDUpdate extends AMBookingCRUDEdit {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		ViewHandler.getInstance().goBack();
 	}
 
 	@Override

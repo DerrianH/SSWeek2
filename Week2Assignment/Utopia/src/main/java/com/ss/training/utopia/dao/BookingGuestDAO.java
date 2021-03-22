@@ -24,16 +24,19 @@ public class BookingGuestDAO extends BaseDAO<BookingGuest> {
 	@Override
 	public Integer addData(BookingGuest guest)
 			throws ClassNotFoundException, SQLException {
-		return executeQueryPk("insert into booking_guest values (?, ?, ?)",
-				new Object[]{guest.getBookingId(), guest.getEmail(),
-						guest.getPhone()});
+		Object[] values = new Object[]{guest.getBookingId(), guest.getEmail(),
+				guest.getPhone()};
+		String[] columns = new String[]{"booking_id","contact_email","contact_phone"};
+		return executeQueryPk(QueryBuilder.insertQuery(tableName, columns),
+				values);
 	}
 
 	@Override
 	public void deleteData(BookingGuest guest)
 			throws ClassNotFoundException, SQLException {
-		executeQuery("delete from booking_guest where booking_id = ?",
-				new Object[]{guest.getBookingId()});
+		Object[] value = new Object[]{guest.getBookingId()};
+		executeQuery(QueryBuilder.deleteQuery(tableName, "booking_id"),
+				value);
 	}
 
 	@Override
@@ -56,9 +59,11 @@ public class BookingGuestDAO extends BaseDAO<BookingGuest> {
 	@Override
 	public void updateData(BookingGuest guest)
 			throws ClassNotFoundException, SQLException {
+		Object[] values =new Object[]{guest.getEmail(), guest.getPhone(),
+				guest.getBookingId()};
+		String[] columns = new String[]{"contact_email","contact_phone","booking_id"};
 		executeQuery(
-				"update booking_guest set contact_email = ?, contact_phone = ? where booking_id = ?",
-				new Object[]{guest.getEmail(), guest.getPhone(),
-						guest.getBookingId(),});
+				QueryBuilder.updateQuery(tableName, columns,"booking_id"),
+				values);
 	}
 }

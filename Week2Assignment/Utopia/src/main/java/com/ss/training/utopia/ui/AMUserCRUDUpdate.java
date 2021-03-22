@@ -120,20 +120,17 @@ public class AMUserCRUDUpdate extends AMUserCRUDEdit {
 
 					try {
 						service.updateUser(user);
-						ViewHandler.getInstance().goBack();
 					} catch (SQLIntegrityConstraintViolationException e) {
 						System.out.println("");
 						System.out.println("Duplicate entry.");
 					} catch (SQLException e) {
 						e.printStackTrace();
 					}
-
+					input = "quit";
+					ViewHandler.getInstance().goBack();
 					break;
 			}
-
 		}
-		ViewHandler.getInstance().goBack();
-
 	}
 
 }

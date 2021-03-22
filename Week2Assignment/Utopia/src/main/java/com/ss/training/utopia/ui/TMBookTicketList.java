@@ -17,6 +17,7 @@ import com.ss.training.utopia.entity.User;
 public class TMBookTicketList extends TMMain {
 	public TMBookTicketList(User user) {
 		super();
+		fetchUpdatedData(user);
 	}
 
 	@Override

@@ -141,12 +141,12 @@ public class AMPassCRUDUpdate extends AMPassCRUDEdit {
 						}
 						try {
 							service.updatePassenger(passenger);
-							ViewHandler.getInstance().goBack();
 						} catch (SQLIntegrityConstraintViolationException e) {
 							System.out.println("");
 							System.out.println("Duplicate entry.");
 						}
-
+						input = "quit";
+						ViewHandler.getInstance().goBack();
 						break;
 				}
 

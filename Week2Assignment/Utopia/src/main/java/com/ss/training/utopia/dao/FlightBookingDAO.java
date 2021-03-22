@@ -24,16 +24,18 @@ public class FlightBookingDAO extends BaseDAO<FlightBooking> {
 	@Override
 	public Integer addData(FlightBooking flightBooking)
 			throws ClassNotFoundException, SQLException {
-		return executeQueryPk("insert into flight_bookings values (?, ?)",
-				new Object[]{flightBooking.getFlightId(),
-						flightBooking.getBookingId()});
+		Object[] values = new Object[]{flightBooking.getFlightId(),
+				flightBooking.getBookingId()};
+		String[] columns = new String[]{"flight_id", "booking_id"};
+		return executeQueryPk(QueryBuilder.insertQuery(tableName, columns),
+				values);
 	}
 
 	@Override
 	public void deleteData(FlightBooking flightBooking)
 			throws ClassNotFoundException, SQLException {
-		executeQuery("delete from flight_bookings where flight_id = ?",
-				new Object[]{flightBooking.getFlightId()});
+		Object[] values = new Object[]{flightBooking.getFlightId()};
+		executeQuery(QueryBuilder.deleteQuery(tableName, "flight_id"), values);
 	}
 
 	@Override
@@ -55,10 +57,11 @@ public class FlightBookingDAO extends BaseDAO<FlightBooking> {
 	@Override
 	public void updateData(FlightBooking flightBooking)
 			throws ClassNotFoundException, SQLException {
-		executeQuery(
-				"update flight_bookings set booking_id = ? where flight_id = ?",
-				new Object[]{flightBooking.getBookingId(),
-						flightBooking.getFlightId()});
+		Object[] values = new Object[]{flightBooking.getFlightId(),
+				flightBooking.getBookingId(), flightBooking.getFlightId()};
+		String[] columns = new String[]{"flight_id", "booking_id"};
+		executeQuery(QueryBuilder.updateQuery(tableName, columns, "flight_id"),
+				values);
 	}
 
 }
