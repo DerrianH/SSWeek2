@@ -7,9 +7,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import com.ss.training.utopia.entity.AirplaneType;
-import com.ss.training.utopia.entity.Airport;
-
 /**
  * @author derrianharris
  *

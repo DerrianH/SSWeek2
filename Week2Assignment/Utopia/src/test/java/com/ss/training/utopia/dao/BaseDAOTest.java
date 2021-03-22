@@ -3,8 +3,6 @@
  */
 package com.ss.training.utopia.dao;
 
-import org.junit.Test;
-
 /**
  * @author derrianharris
  *

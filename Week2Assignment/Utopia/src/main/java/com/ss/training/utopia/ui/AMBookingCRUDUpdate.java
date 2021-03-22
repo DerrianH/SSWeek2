@@ -68,7 +68,7 @@ public class AMBookingCRUDUpdate extends AMBookingCRUDEdit {
 						seatType = input;
 						step++;
 						break;
-					case 5 :
+					case 3 :
 						is_active = is_active.toLowerCase();
 						switch (is_active) {
 							case "y" :
@@ -116,6 +116,7 @@ public class AMBookingCRUDUpdate extends AMBookingCRUDEdit {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ViewHandler.getInstance().goBack();
 	}
 
 	@Override

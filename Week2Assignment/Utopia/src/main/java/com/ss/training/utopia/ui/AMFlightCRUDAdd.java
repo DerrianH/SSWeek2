@@ -193,6 +193,7 @@ public class AMFlightCRUDAdd extends BaseMenu {
 			System.out.println("Error retrieving data. Contact Administrator.");
 			e.printStackTrace();
 		}
+		ViewHandler.getInstance().goBack();
 	}
 
 	@Override

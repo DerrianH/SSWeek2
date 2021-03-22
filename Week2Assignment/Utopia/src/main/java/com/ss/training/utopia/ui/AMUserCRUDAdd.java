@@ -97,6 +97,7 @@ public class AMUserCRUDAdd extends AMUserCRUD {
 					break;
 			}
 		}
+		ViewHandler.getInstance().goBack();
 	}
 
 	@Override

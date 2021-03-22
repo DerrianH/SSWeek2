@@ -112,5 +112,6 @@ public class AMPassCRUDAdd extends AMPassCRUD {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ViewHandler.getInstance().goBack();
 	}
 }

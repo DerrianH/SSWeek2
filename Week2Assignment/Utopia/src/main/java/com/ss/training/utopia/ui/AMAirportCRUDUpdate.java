@@ -78,8 +78,7 @@ public class AMAirportCRUDUpdate extends AMAirportCRUDEdit {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-
+		ViewHandler.getInstance().goBack();
 	}
 
 	@Override

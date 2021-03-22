@@ -96,6 +96,7 @@ public class AMBookingCRUDAdd extends BaseMenu {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		ViewHandler.getInstance().goBack();
 	}
 
 	@Override

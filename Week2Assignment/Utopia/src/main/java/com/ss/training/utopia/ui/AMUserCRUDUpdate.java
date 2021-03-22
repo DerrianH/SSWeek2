@@ -131,6 +131,7 @@ public class AMUserCRUDUpdate extends AMUserCRUDEdit {
 					break;
 			}
 		}
+		ViewHandler.getInstance().goBack();
 	}
 
 }
