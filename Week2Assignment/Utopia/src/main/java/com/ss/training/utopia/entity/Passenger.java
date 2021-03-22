@@ -39,44 +39,33 @@ public class Passenger {
 		this.bookingId = bookingId;
 	}
 
-	/**
-	 * @return the id
-	 */
-	public Integer getId() {
-		return this.id;
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Passenger other = (Passenger) obj;
+		if (this.id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!this.id.equals(other.id))
+			return false;
+		return true;
 	}
 	/**
-	 * @param id
-	 *            the id to set
+	 * @return the address
 	 */
-	public void setId(Integer id) {
-		this.id = id;
+	public String getAddress() {
+		return this.address;
 	}
 	/**
-	 * @return the firstName
+	 * @return the bookingId
 	 */
-	public String getFirstName() {
-		return this.firstName;
-	}
-	/**
-	 * @param firstName
-	 *            the firstName to set
-	 */
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-	/**
-	 * @return the lastName
-	 */
-	public String getLastName() {
-		return this.LastName;
-	}
-	/**
-	 * @param lastName
-	 *            the lastName to set
-	 */
-	public void setLastName(String lastName) {
-		this.LastName = lastName;
+	public Integer getBookingId() {
+		return this.bookingId;
 	}
 	/**
 	 * @return the dob
@@ -85,11 +74,10 @@ public class Passenger {
 		return this.dob;
 	}
 	/**
-	 * @param dob
-	 *            the dob to set
+	 * @return the firstName
 	 */
-	public void setDob(LocalDate dob) {
-		this.dob = dob;
+	public String getFirstName() {
+		return this.firstName;
 	}
 	/**
 	 * @return the gender
@@ -98,17 +86,23 @@ public class Passenger {
 		return this.gender;
 	}
 	/**
-	 * @param gender
-	 *            the gender to set
+	 * @return the id
 	 */
-	public void setGender(String gender) {
-		this.gender = gender;
+	public Integer getId() {
+		return this.id;
 	}
 	/**
-	 * @return the address
+	 * @return the lastName
 	 */
-	public String getAddress() {
-		return this.address;
+	public String getLastName() {
+		return this.LastName;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((this.id == null) ? 0 : this.id.hashCode());
+		return result;
 	}
 	/**
 	 * @param address
@@ -118,16 +112,52 @@ public class Passenger {
 		this.address = address;
 	}
 	/**
-	 * @return the bookingId
-	 */
-	public Integer getBookingId() {
-		return this.bookingId;
-	}
-	/**
 	 * @param bookingId
 	 *            the bookingId to set
 	 */
 	public void setBookingId(Integer bookingId) {
 		this.bookingId = bookingId;
+	}
+	/**
+	 * @param dob
+	 *            the dob to set
+	 */
+	public void setDob(LocalDate dob) {
+		this.dob = dob;
+	}
+	/**
+	 * @param firstName
+	 *            the firstName to set
+	 */
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	/**
+	 * @param gender
+	 *            the gender to set
+	 */
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	/**
+	 * @param id
+	 *            the id to set
+	 */
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	/**
+	 * @param lastName
+	 *            the lastName to set
+	 */
+	public void setLastName(String lastName) {
+		this.LastName = lastName;
+	}
+
+	@Override
+	public String toString() {
+		return this.firstName + " " + this.LastName;
 	}
 }

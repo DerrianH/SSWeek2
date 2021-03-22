@@ -10,42 +10,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.ss.training.utopia.entity.BookingAgent;
+import com.ss.training.utopia.entity.BookingUser;
+import com.ss.training.utopia.entity.User;
 
 /**
  * @author derrianharris
  *
  */
-public class BookingAgentDAO extends BaseDAO<BookingAgent> {
+public class BookingAgentDAO extends BookingUserDAO {
 
-	public BookingAgentDAO(Connection conn) {
-		super(conn);
+	public BookingAgentDAO(Connection conn, String tableName) {
+		super(conn, tableName);
+		idName = "agent_id";
 	}
 
-	public void addData(BookingAgent agent) throws ClassNotFoundException, SQLException {
-		executeQuery("insert into booking_agent values (?, ?)", new Object[] { agent.getBookingId(), agent.getUserId()});
-	}
-
-	public void updateData(BookingAgent agent) throws ClassNotFoundException, SQLException {
-		executeQuery("update booking_agent set agent_id = ? where booking_id = ?", new Object[] {agent.getUserId(), agent.getBookingId()});
-	}
-
-	public void deleteData(BookingAgent agent) throws ClassNotFoundException, SQLException {
-		executeQuery("delete from booking_agent where booking_id = ?", new Object[] {agent.getBookingId()});
-	}
-	
 	@Override
-	protected List<BookingAgent> extractData(ResultSet rs)
+	protected List<BookingUser> extractData(ResultSet rs)
 			throws ClassNotFoundException, SQLException {
-		List<BookingAgent> bookingAgents = new ArrayList<BookingAgent>();
-		System.out.println("extractData");
-		
-		while(rs.next()) {
+		List<BookingUser> bookingAgents = new ArrayList<BookingUser>();
+		while (rs.next()) {
 			Integer bookingId = rs.getInt("booking_id");
 			Integer agentId = rs.getInt("agent_id");
-			BookingAgent bookingAgent = new BookingAgent(bookingId,agentId);
-			
+			BookingAgent bookingAgent = new BookingAgent(bookingId, agentId);
+
 			bookingAgents.add(bookingAgent);
 		}
 		return bookingAgents;
+	}
+	@Override
+	public List<BookingUser> getAllBookingUserFromUser(User user)
+			throws ClassNotFoundException, SQLException {
+		Object[] value = new Object[]{user.getId()};
+		return readDataQuery(
+				QueryBuilder.selectQueryCond(tableName, "*", idName), value);
 	}
 }

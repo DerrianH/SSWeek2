@@ -17,35 +17,64 @@ import com.ss.training.utopia.entity.Airport;
  */
 public class AirportDAO extends BaseDAO<Airport> {
 
-	public AirportDAO(Connection conn) {
-		super(conn);
+	public AirportDAO(Connection conn, String tableName) {
+		super(conn, tableName);
 	}
 
-	public void addData(Airport airport) throws ClassNotFoundException, SQLException {
-		executeQuery("insert into airport values (?, ?)", new Object[] { airport.getIataId(), airport.getCity()});
+	@Override
+	public Integer addData(Airport airport)
+			throws ClassNotFoundException, SQLException {
+		Object[] values = new Object[]{airport.getIataId(), airport.getCity()};
+		String[] columns = new String[]{"iata_id", "city"};
+		return executeQueryPk(QueryBuilder.insertQuery(tableName, columns),
+				values);
 	}
 
-	public void updateData(Airport airport) throws ClassNotFoundException, SQLException {
-		executeQuery("update airport set city = ? where id = ?", new Object[] {airport.getCity(),airport.getIataId()});
+	@Override
+	public void deleteData(Airport airport)
+			throws ClassNotFoundException, SQLException {
+		Object[] values = new Object[]{airport.getIataId()};
+		executeQuery(QueryBuilder.deleteQuery(tableName, "iata_id"), values);
 	}
 
-	public void deleteData(Airport airport) throws ClassNotFoundException, SQLException {
-		executeQuery("delete from airport where iata_id = ?", new Object[] {airport.getIataId()});
-	}
-	
 	@Override
 	protected List<Airport> extractData(ResultSet rs)
 			throws ClassNotFoundException, SQLException {
 		List<Airport> airports = new ArrayList<Airport>();
-		System.out.println("extractData");
-		
-		while(rs.next()) {
+		while (rs.next()) {
 			String id = rs.getString("iata_id");
 			String city = rs.getString("city");
-			Airport airport = new Airport(id,city);
-			
+			Airport airport = new Airport(id, city);
+
 			airports.add(airport);
 		}
 		return airports;
 	}
+
+	public Airport getAirportFromCode(String iataId)
+			throws ClassNotFoundException, SQLException {
+		Object[] values = new Object[]{iataId};
+		return readDataQuery(
+				QueryBuilder.selectQueryCond(tableName, "*", "iata_id"), values)
+						.get(0);
+	}
+
+	public void updateAirportFromOldIATA(Airport airport, String oldIata)
+			throws ClassNotFoundException, SQLException {
+		Object[] values = new Object[]{airport.getCity(), airport.getIataId(),
+				oldIata};
+		executeQuery(
+				"update airport set city = ?, iata_id = ? where iata_id = ?",
+				values);
+	}
+
+	@Override
+	public void updateData(Airport airport)
+			throws ClassNotFoundException, SQLException {
+		Object[] values = new Object[]{airport.getCity(), airport.getIataId()};
+		executeQuery(
+				"update airport set city = ?, iata_id = ? where iata_id = ?",
+				values);
+	}
+
 }
