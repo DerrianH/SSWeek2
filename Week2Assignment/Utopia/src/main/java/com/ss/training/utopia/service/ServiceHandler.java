@@ -453,7 +453,6 @@ public class ServiceHandler {
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -477,13 +476,10 @@ public class ServiceHandler {
 					e.printStackTrace();
 				}
 			});
-			conn.commit();
-			conn.commit();
 			return bookings;
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -509,12 +505,10 @@ public class ServiceHandler {
 				}
 			});
 
-			conn.commit();
 			return airplanes;
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -534,7 +528,6 @@ public class ServiceHandler {
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -558,12 +551,10 @@ public class ServiceHandler {
 					e.printStackTrace();
 				}
 			});
-			conn.commit();
 			return activeBookings;
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -588,12 +579,10 @@ public class ServiceHandler {
 					e.printStackTrace();
 				}
 			});
-			conn.commit();
 			return canceledBookings;
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -622,12 +611,10 @@ public class ServiceHandler {
 					e.printStackTrace();
 				}
 			});
-			conn.commit();
 			return flights;
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -642,12 +629,10 @@ public class ServiceHandler {
 			conn = util.getConnection();
 			UserDAO userDAO = new UserDAO(conn, "user");
 			List<User> users = userDAO.getUsersFromRole(roleId);
-			conn.commit();
 			return users;
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -677,12 +662,10 @@ public class ServiceHandler {
 					e.printStackTrace();
 				}
 			});
-			conn.commit();
 			return bookedFlights;
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			System.out.println(
 					"Error adding booking payment data. Contact Administrator.");
 		} finally {
@@ -705,7 +688,6 @@ public class ServiceHandler {
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -728,12 +710,11 @@ public class ServiceHandler {
 			Flight flight = flightDAO.getFlightById(id);
 			fillFlightData(flight, routeDOA, airplaneDAO, AirplaneTypeDAO,
 					airportDAO);
-			conn.commit();
+
 			return flight;
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -754,7 +735,6 @@ public class ServiceHandler {
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -776,7 +756,6 @@ public class ServiceHandler {
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -794,12 +773,10 @@ public class ServiceHandler {
 
 			Route route = routeDOA.getRouteFromId(id);
 			fillRouteData(route, airportDAO);
-			conn.commit();
 			return route;
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -818,12 +795,10 @@ public class ServiceHandler {
 
 			Route route = routeDOA.getRouteFromOriDest(org, dest);
 			fillRouteData(route, airportDAO);
-			conn.commit();
 			return route;
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -844,7 +819,6 @@ public class ServiceHandler {
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
@@ -865,7 +839,6 @@ public class ServiceHandler {
 
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			conn.rollback();
 			return null;
 		} finally {
 			if (conn != null) {
